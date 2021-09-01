@@ -30,11 +30,14 @@ namespace ConvertQuestion.Pages
 
         public async Task<string> Getstring()
         {
+
+            //string url = "http://appliweather-jhtpro-dev.apps.sandbox.x8i5.p1.openshiftapps.com/weatherforecast";
+            string url = Environment.GetEnvironmentVariable("urlweather");
             string response = string.Empty;
             using (var client = new HttpClient())
             {
                  response =
-                    await client.GetStringAsync("http://appliweather-jhtpro-dev.apps.sandbox.x8i5.p1.openshiftapps.com/weatherforecast");
+                    await client.GetStringAsync(url);
                 //The response object is a string that looks like this:
                 //"{ message: 'Hello world!' }"
             }
